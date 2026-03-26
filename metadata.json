@@ -1,0 +1,5 @@
+{
+  "name": "Help Desk Hardware Inventory",
+  "description": "A comprehensive hardware inventory management system featuring a real-time dashboard, asset tracking, and AI-powered insights using Gemini.",
+  "requestFramePermissions": ["camera"]
+}

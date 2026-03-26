@@ -1,0 +1,77 @@
+{
+  "entities": {
+    "Device": {
+      "title": "Device",
+      "description": "A hardware device in the inventory.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "serialNumber": { "type": "string" },
+        "shelfTag": { "type": "string" },
+        "type": { "type": "string" },
+        "brand": { "type": "string" },
+        "model": { "type": "string" },
+        "location": { "type": "string" },
+        "status": { "type": "string" },
+        "comments": { "type": "string" },
+        "description": { "type": "string" },
+        "assignedUser": { "type": "string" },
+        "assignedUserInitials": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "lastUpdated": { "type": "string" },
+        "area": { "type": "string" },
+        "sector": { "type": "string" },
+        "piso": { "type": "string" },
+        "puesto": { "type": "string" },
+        "attachments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "data": { "type": "string" },
+              "date": { "type": "string" }
+            }
+          }
+        },
+        "logs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": { "type": "string" },
+              "action": { "type": "string" },
+              "details": { "type": "string" },
+              "performedBy": { "type": "string" }
+            }
+          }
+        },
+        "warrantyUntil": { "type": "string" }
+      },
+      "required": ["id", "serialNumber", "shelfTag", "type", "brand", "model", "location", "status", "area", "sector", "piso", "puesto"]
+    },
+    "User": {
+      "title": "User",
+      "description": "A user of the system.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "role": { "type": "string", "enum": ["Administrador", "Usuario"] },
+        "fullName": { "type": "string" },
+        "lastLogin": { "type": "string" }
+      },
+      "required": ["id", "username", "role", "fullName"]
+    }
+  },
+  "firestore": {
+    "/devices/{deviceId}": {
+      "schema": "Device",
+      "description": "Collection of hardware devices."
+    },
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Collection of system users."
+    }
+  }
+}
